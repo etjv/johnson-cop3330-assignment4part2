@@ -1,0 +1,80 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App {
+    main()
+    start()
+}
+
+class AppController{
+    createButtonClicked()
+    deleteButtonClicked()
+    openButtonClicked()
+    importButtonClicked()
+    importMultipleButtonClicked()
+    exportButtonClicked()
+    exportAllButtonClicked()
+    renameButtonClicked()
+    createList()
+    deleteList()
+    importList()
+    importMultipleLists()
+    exportList()
+    exportAllLists()
+    renameList()
+}
+
+class OpenWindowController{
+    addItemButtonClicked()
+    removeItemButtonClicked()
+    editDescriptionButtonClicked()
+    editDueDateButtonClicked()
+    markCompleteButtonClicked()
+    showAllButtonClicked()
+    showOnlyCompleteButtonClicked()
+    showOnlyIncompleteButtonClicked()
+    addItem()
+    removeItem()
+    editItemDescription()
+    editItemDueDate()
+    markItemAsComplete()
+    showAll()
+    showOnlyComplete()
+    showOnlyIncomplete()
+}
+
+class ToDoItem{
+    String itemDueDate;
+    String itemDescription;
+    boolean isItemComplete;
+
+    getItemDueDate()
+    setItemDueDate()
+    getItemDescription()
+    setItemDescription()
+    getIsItemComplete()
+    setItemComplete()
+    setItemIncomplete()
+}
+
+class ToDoList{
+    ArrayList ToDoItem;
+    String Title;
+
+    getListTitle()
+    setListTitle()
+}
+
+class ListOfToDoLists{
+    ArrayList ToDoList;
+
+}
+
+javafx.Application <|-- App
+App -- AppController
+OpenWindowController <-- AppController
+ListOfToDoLists --> ToDoList
+ToDoList --> ToDoItem
+AppController --> ListOfToDoLists
+
+@enduml
