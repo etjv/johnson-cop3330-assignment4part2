@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="387.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.AppController">
-   <children>
-      <ListView layoutX="8.0" layoutY="7.0" prefHeight="278.0" prefWidth="584.0" />
-      <ScrollBar layoutX="579.0" layoutY="7.0" orientation="VERTICAL" prefHeight="278.0" prefWidth="14.0" />
-      <Button layoutX="14.0" layoutY="304.0" mnemonicParsing="false" onAction="#createButtonClicked" prefHeight="25.0" prefWidth="59.0" text="Create" />
-      <Button layoutX="83.0" layoutY="304.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="25.0" prefWidth="59.0" text="Delete" />
-      <Button layoutX="155.0" layoutY="304.0" mnemonicParsing="false" onAction="#openButtonClicked" prefHeight="25.0" prefWidth="59.0" text="Open" />
-      <Button layoutX="300.0" layoutY="304.0" mnemonicParsing="false" onAction="#importButtonClicked" prefHeight="25.0" prefWidth="59.0" text="Import" />
-      <Button layoutX="300.0" layoutY="348.0" mnemonicParsing="false" onAction="#exportButtonClicked" prefHeight="25.0" prefWidth="59.0" text="Export" />
-      <Button layoutX="227.0" layoutY="304.0" mnemonicParsing="false" onAction="#renameButtonClicked" text="Rename" />
-      <TableView layoutX="12.0" layoutY="14.0" prefHeight="265.0" prefWidth="563.0">
-        <columns>
-          <TableColumn prefWidth="562.0" text="To-Do Lists" />
-        </columns>
-      </TableView>
-      <Button layoutX="368.0" layoutY="348.0" mnemonicParsing="false" onAction="#exportAllButtonClicked" prefHeight="25.0" prefWidth="117.0" text="Export All" />
-      <Button layoutX="368.0" layoutY="304.0" mnemonicParsing="false" onAction="#importMultipleButtonClicked" prefHeight="25.0" prefWidth="117.0" text="Import Multiple" />
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ucf.assignments.AppController">
+    <TextField fx:id="myTitle" layoutX="52.0" layoutY="52.0" prefHeight="25.0" prefWidth="535.0"
+               promptText="Enter title here..."/>
+    <SplitMenuButton layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0"
+                     text="File">
+      <items>
+          <MenuItem mnemonicParsing="false" onAction="#openListButtonClicked" text="Open List"/>
+          <MenuItem mnemonicParsing="false" onAction="#saveListButtonClicked" text="Save List"/>
+      </items>
+    </SplitMenuButton>
+    <SplitMenuButton layoutX="89.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0"
+                     text="Show">
+      <items>
+          <MenuItem mnemonicParsing="false" onAction="#showAllItemsButtonClicked" text="All Items"/>
+          <MenuItem mnemonicParsing="false" onAction="#showCompleteItemsButtonClicked" text="Complete Items"/>
+          <MenuItem mnemonicParsing="false" onAction="#showIncompleteItemsButtonClicked" text="Incomplete Items"/>
+      </items>
+    </SplitMenuButton>
+    <SplitMenuButton layoutX="164.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0"
+                     text="Edit">
+      <items>
+          <MenuItem mnemonicParsing="false" onAction="#addItemButtonClicked" text="Add Item"/>
+          <MenuItem mnemonicParsing="false" onAction="#removeItemButtonClicked" text="Remove Selected Item"/>
+          <MenuItem mnemonicParsing="false" onAction="#removeAllItemsButtonClicked" text="Remove All Items"/>
+      </items>
+    </SplitMenuButton>
+    <Label alignment="CENTER" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="36.0" text="Title"
+           textAlignment="CENTER"/>
+    <VBox layoutX="14.0" layoutY="88.0" prefHeight="266.0" prefWidth="572.0">
+        <TableView fx:id="myTable" prefHeight="266.0" prefWidth="572.0"/>
+    </VBox>
 </AnchorPane>

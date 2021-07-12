@@ -5,19 +5,25 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ToDoListTest {
-
     @Test
-    void getListTitle() {
-        // expected = "title of the list"
-        // actual = list.getListTitle()
-        // assert equals
+    void setListTitle() {
+        ToDoList list = new ToDoList();
+        // expected title
+        String expected = "title";
+        // setting title with setListTitle method
+        list.setListTitle("title");
+        // assert they are equal
+        assertEquals(list.getListTitle(), expected);
     }
 
     @Test
-    void setListTitle() {
-        // expected = "title of the list"
-        // list.setListTitle("title of the list")
-        // actual = list.title
-        // assert equals
+    void getListTitle() {
+        ToDoList list = new ToDoList();
+        // expected title
+        String expected = "title";
+        // setting title with setListTitle method
+        list.setListTitle("title");
+        // asserting that getListTitle method returns properly
+        assertEquals(list.getListTitle(), expected);
     }
 }

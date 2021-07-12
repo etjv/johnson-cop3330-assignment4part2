@@ -7,74 +7,62 @@ class App {
 }
 
 class AppController{
-    createButtonClicked()
-    deleteButtonClicked()
-    openButtonClicked()
-    importButtonClicked()
-    importMultipleButtonClicked()
-    exportButtonClicked()
-    exportAllButtonClicked()
-    renameButtonClicked()
-    createList()
-    deleteList()
-    importList()
-    importMultipleLists()
-    exportList()
-    exportAllLists()
-    renameList()
-}
+    + openListButtonClicked()
+    + saveListButtonClicked()
+    + showAllItemsButtonClicked()
+    + showCompleteItemsButtonClicked()
+    + showIncompleteItemsButtonClicked()
+    + addItemButtonClicked()
+    + removeItemButtonClicked()
+    + removeAllItemsButtonClicked()
 
-class OpenWindowController{
-    addItemButtonClicked()
-    removeItemButtonClicked()
-    editDescriptionButtonClicked()
-    editDueDateButtonClicked()
-    markCompleteButtonClicked()
-    showAllButtonClicked()
-    showOnlyCompleteButtonClicked()
-    showOnlyIncompleteButtonClicked()
-    addItem()
-    removeItem()
-    editItemDescription()
-    editItemDueDate()
-    markItemAsComplete()
-    showAll()
-    showOnlyComplete()
-    showOnlyIncomplete()
-}
 
-class ToDoItem{
-    String itemDueDate;
-    String itemDescription;
-    boolean isItemComplete;
-
-    getItemDueDate()
-    setItemDueDate()
-    getItemDescription()
-    setItemDescription()
-    getIsItemComplete()
-    setItemComplete()
-    setItemIncomplete()
+    + openList()
+    + saveList()
+    + showAllItems()
+    + showCompleteItems()
+    + showIncompleteItems()
+    + addItem()
+    + removeItem()
+    + removeAllItems()
+    + updateData()
+    + copyData()
 }
 
 class ToDoList{
-    ArrayList ToDoItem;
-    String Title;
+    - ArrayList ToDoItem;
+    - String Title;
 
-    getListTitle()
-    setListTitle()
+    + getListTitle()
+    + setListTitle()
 }
 
-class ListOfToDoLists{
-    ArrayList ToDoList;
+class ToDoItem{
+    - DatePicker itemDueDate;
+    - CheckBox isItemComplete;
+    - String itemDescription;
+    - String stringDueDate;
+    - boolean boolComplete;
+    - String stringDesc;
+
+    + getItemDueDate()
+    + setItemDueDate()
+    + getItemDescription()
+    + setItemDescription()
+    + getIsItemComplete()
+    + toggleItemComplete()
+    + getStringDueDate()
+    + setStringDueDate()
+    + getBoolComplete()
+    + setBoolComplete()
+    + getStringDesc()
+    + setStringDesc()
 
 }
 
 javafx.Application <|-- App
 App -- AppController
-OpenWindowController <-- AppController
-ListOfToDoLists --> ToDoList
 ToDoList --> ToDoItem
-AppController --> ListOfToDoLists
+AppController --> ToDoList
 
 @enduml
